@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:aop="http://www.springframework.org/schema/aop" xmlns:tx="http://www.springframework.org/schema/tx"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+           http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
+           http://www.springframework.org/schema/context
+           http://www.springframework.org/schema/context/spring-context-2.5.xsd
+           http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-2.5.xsd
+           
+           http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-2.5.xsd">
+    
+   
+  
+<!--   <bean id="businessService" class="book.chapterl.springrmi.BusinessImpl"/>
+ <bean id="rmiBusinessService" class="org.springframework.remoting.rmi.RmiServiceExporter">
+      <property name="service"><ref bean="businessService"/></property>
+      <property name="serviceName"><value>BusinessService</value></property>
+      <property name="serviceInterface"><value>com.business.Bussiness</value></property>
+ </bean> 
+      
+  
+  
+  
+   -->
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <!--  <bean id="businessService" class="org.springframework.remoting.rmi.RmiProxyFactoryBean">
+   
+             <property name="serviceUrl">
+             <value>rmi://localhost/BusinessService</value>
+             </property>
+             
+             <property name="serviceInterface">
+             <value>book.chaperl.springrmi.Business</value>
+             </property>
+   </bean> -->
+</beans>

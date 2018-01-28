@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.dao.report.mapper.ReportMapper">
+		<select id="getAllReportRecord" parameterType="java.util.HashMap"
+		resultMap="reportMap">
+		select* from t_report 
+		<if test="startTime!=null">where f_save_time >= #{startTime}</if>
+		<if test="endTime!=null">and #{endTime} >= f_sell_time</if>
+		order by f_sell_time desc
+		<if test="startIndex!=null">limit #{startIndex},</if>
+		<if test="length!=null">#{length}</if>
+	</select>
+		<!-- 查找 -->
+		<select id="getReortLikeUsername" parameterType="String"
+			resultMap="reportMap">
+			select* from t_report where f_username LIKE
+			CONCAT(CONCAT('%',#{_parameter}),'%')
+		</select>
+		<!-- 插入 -->
+		<!-- useGeneratedKeys设置为"true"表明要MyBatis获取由数据库自动生成的主键；keyProperty="id"指定把获取到的主键值注入到user的id属性 -->
+		<insert id="addReport" parameterType="Report" useGeneratedKeys="true"
+			keyProperty="f_record_id">
+			insert into
+			t_report(f_record_id,f_name,f_phone_number,f_we_chat,f_game_id,f_address,f_question_type,f_question_desc,f_save_time)
+			values(#{reportId},#{name},#{phoneNumber},#{weChat},#{gameId},#{address},#{questionType},#{questionDesc},#{saveTime})
+		</insert>
+
+		
+
+	
+
+	
+	
+		<resultMap type="com.pojo.Report" id="reportMap">
+			<!-- column:对应的列名 property:对应的属性名 -->
+			<result column="f_record_id" property="reportId" />
+			<result column="f_name" property="name" />
+			<result column="f_phone_number" property="phoneNumber" />
+			<result column="f_we_chat" property="weChat" />
+			<result column="f_game_id" property="gameId" />
+			<result column="f_address" property="address" />
+			<result column="f_question_type" property="questionType" />
+			<result column="f_question_desc" property="questionDesc" />
+			<result column="f_save_time" property="saveTime" />
+		</resultMap>
+</mapper>

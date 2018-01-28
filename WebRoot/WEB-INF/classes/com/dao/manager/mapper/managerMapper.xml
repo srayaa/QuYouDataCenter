@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.dao.manager.mapper.ManagerMapper">
+     <!-- 查找 -->  
+     <select id="findManagerByID" parameterType="int" resultMap="ManagerMap">  
+     select* from t_manager where f_user_id =#{userId}  
+     </select>  
+       
+      <!-- 插入 -->    
+      <!-- useGeneratedKeys设置为"true"表明要MyBatis获取由数据库自动生成的主键；keyProperty="id"指定把获取到的主键值注入到MainProxy的id属性 -->   
+    <insert id="addManager" parameterType="Manager" useGeneratedKeys="true" keyProperty="f_user_id">    
+        insert into t_manager(f_username,f_password,f_card_l_time,f_create_time)   
+        values(#{username},#{password},#{cardLTime},#{createTime})    
+    </insert>    
+          <update id="editPassword"  parameterType="Manager">    
+        update t_manager set f_password= #{password} where f_user_id = #{userId}    
+    </update> 
+     <!-- 删除  -->  
+    <delete id="deleteManager" parameterType="int">    
+        delete from t_manager where f_user_id = #{userId}    
+    </delete>    
+      
+    <!-- 修改 -->    
+    <update id="updateManager"  parameterType="int">    
+        update t_manager set f_username = #{username}  
+        ,f_password=#{password},f_card_l_count=#{cardLCount},f_card_f_count=#{cardFCount},f_card_l_time=#{cardLTime} where f_user_id = #{userId}    
+    </update>   
+     
+	  <resultMap type="com.pojo.Manager" id="ManagerMap">  
+    <!--   
+        column:对应的列名  
+        property:对应的属性名  
+     -->  
+    <result column="f_user_id" property="userId" />  
+    <result column="f_username" property="username" />  
+    <result column="f_password" property="password" />  
+    <result column="f_card_l_time" property="cardLTime" />
+	<result column="f_card_l_count" property="cardLCount" />
+	<result column="f_card_f_count" property="cardFCount" />
+     <result column="f_create_time" property="createTime" />  
+</resultMap>  
+ </mapper>

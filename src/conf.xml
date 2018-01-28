@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN" "http://mybatis.org/dtd/mybatis-3-config.dtd">
+
+<configuration>
+
+	<properties resource="config.properties"/>
+	 <settings>
+        <!-- 打印查询语句 -->
+        <setting name="logImpl" value="STDOUT_LOGGING" />
+    </settings>
+ <!-- 设置别名，一定要放在properties下面  -->  
+    <typeAliases>  
+        <typeAlias alias="MainProxy" type="com.pojo.MainProxy"/>  
+        <typeAlias alias="Proxy" type="com.pojo.Proxy"/>  
+        <typeAlias alias="Manager" type="com.pojo.Manager"/>  
+        <typeAlias alias="CardRecord" type="com.pojo.CardRecord"  />  
+        <typeAlias alias="Customer" type="com.pojo.Customer"  />  
+        <typeAlias alias="Report" type="com.pojo.Report"  />  
+    </typeAliases>  
+	<environments default="development">
+		<environment id="development">
+			<transactionManager type="JDBC" />
+			<dataSource type="POOLED">
+				<property name="driver" value="${driver}" />
+				<property name="url" value="${url}" />
+				<property name="username" value="${name}" />
+				<property name="password" value="${password}" />
+			</dataSource>
+		</environment>
+	</environments>
+	
+
+	 <!-- 列出映射文件 -->  
+     <mappers>  
+        <mapper resource="com/dao/manager/mapper/managerMapper.xml" />  
+        <mapper resource="com/dao/mainProxy/mapper/mainProxyMapper.xml" />  
+        <mapper resource="com/dao/proxy/mapper/proxyMapper.xml" />  
+        <mapper resource="com/dao/customer/mapper/customerMapper.xml" />  
+        <mapper resource="com/dao/cardRecord/mapper/cardRecordMapper.xml" />  
+        <mapper resource="com/dao/report/mapper/reportMapper.xml" />  
+        
+    </mappers>   
+    
+   
+</configuration>

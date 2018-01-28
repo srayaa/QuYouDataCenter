@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.dao.proxy.mapper.ProxyMapper">
+	<!-- 查找 -->
+	<select id="findProxyByID" parameterType="int" resultMap="proxyMap">
+		select* from t_proxy where f_user_id =#{userId}
+	</select>
+	<select id="getProxyIdsByRecommendID" parameterType="int"
+		resultType="Integer">
+		select f_user_id from t_proxy where f_recomend_person
+		=#{recommendPerson}
+		</select>
+		<!-- 查找 -->
+		<select id="getProxyLikeUsername" parameterType="String"
+			resultMap="proxyMap">
+			select* from t_proxy where f_username LIKE
+			CONCAT(CONCAT('%',#{_parameter}),'%')
+		</select>
+		<!-- 插入 -->
+		<!-- useGeneratedKeys设置为"true"表明要MyBatis获取由数据库自动生成的主键；keyProperty="id"指定把获取到的主键值注入到user的id属性 -->
+		<insert id="addProxy" parameterType="Proxy" useGeneratedKeys="true"
+			keyProperty="f_user_id">
+			insert into
+			t_proxy(f_user_id,f_username,f_password,f_ini_password,f_card_l_count,f_card_f_count,f_address,f_contact_name,f_contact_phone,f_emergency_contact,f_create_time,f_recomend_person)
+			values(#{userId},#{username},#{password},#{initPassword},#{cardLCount},#{cardFCount},#{address},#{contactName},#{contactPhone},#{emergencyContact},#{createTime},#{recommendPerson})
+		</insert>
+
+		<!-- 删除 -->
+		<delete id="deleteProxy" parameterType="int">
+			delete from t_proxy where f_user_id = #{userId}
+		</delete>
+
+		<!-- 修改 -->
+		<update id="updateProxy" parameterType="Proxy">
+			update t_proxy set f_username = #{username},f_address=#{address}
+			,f_contact_name=#{contactName} ,f_contact_phone=#{contactPhone} where
+			f_user_id = #{userId}
+		</update>
+		<!-- 修改 -->
+		<update id="updateLCardCount" parameterType="Proxy">
+			update t_proxy set f_card_l_count= #{cardLCount},f_card_l_time=#{cardLTime},f_income=#{income} where
+			f_user_id = #{userId}
+		</update>
+		<update id="updateFCardCount" parameterType="Proxy">
+			update t_proxy set f_card_f_count=
+			#{cardFCount},f_income=#{income} where
+			f_user_id = #{userId}
+		</update>
+		<update id="editPassword" parameterType="Proxy">
+			update t_proxy set f_password= #{password} where f_user_id = #{userId}
+		</update>
+		<!-- 修改 -->
+		<select id="getProxysByRecommendID" parameterType="java.util.HashMap" resultMap="proxyMap">
+			select * from t_proxy where f_recomend_person=#{recommendId}
+			order by f_create_time desc
+		<if test="startIndex!=null">limit #{startIndex},</if>
+		<if test="length!=null">#{length}</if>
+		</select>
+		
+		<select id="getProxysByRecommendIDCount" parameterType="int" resultType="int">
+			select count(*) from t_proxy where f_recomend_person=#{recommendId}
+		</select>
+		<!-- 按所有时间查找售卡记录 -->
+		<select id="getAllProxys" parameterType="java.util.HashMap"
+			resultMap="proxyMap">
+			select* from t_proxy 
+			<if test="startTime!=null or endTime!=null">where</if>
+			<if test="startTime!=null"> f_create_time >= #{startTime}</if>
+			<if test="startTime!=null and endTime!=null">and</if>
+			<if test="endTime!=null"> #{endTime} >= f_create_time</if>
+			order by f_create_time desc
+			<if test="startIndex!=null">limit #{startIndex},</if>
+			<if test="length!=null">#{length}</if>
+		</select>
+		<select id="getAllProxysCount" parameterType="java.util.HashMap"
+			resultType="int">
+			select count(*) from t_proxy 
+			<if test="startTime!=null or endTime!=null">where</if>
+			<if test="startTime!=null"> f_create_time >= #{startTime}</if>
+			<if test="startTime!=null and endTime!=null">and</if>
+			<if test="endTime!=null"> #{endTime} >= f_create_time</if>
+			order by f_create_time desc
+			<if test="startIndex!=null">limit #{startIndex},</if>
+			<if test="length!=null">#{length}</if>
+		</select>
+		<!-- 查找买卡记录 -->
+		<select id="getProxys" parameterType="java.util.HashMap"
+			resultMap="proxyMap">
+			select* from t_proxy where f_recomend_person =#{id}
+			<if test="startTime!=null or endTime!=null">where</if>
+			<if test="startTime!=null"> f_create_time >= #{startTime}</if>
+			<if test="startTime!=null and endTime!=null">and</if>
+			<if test="endTime!=null"> #{endTime} >= f_create_time</if>
+			order by f_create_time desc
+			<if test="startIndex!=null">limit #{startIndex},</if>
+			<if test="length!=null">#{length}</if>
+		</select>
+		<resultMap type="com.pojo.Proxy" id="proxyMap">
+			<!-- column:对应的列名 property:对应的属性名 -->
+			<result column="f_user_id" property="userId" />
+			<result column="f_username" property="username" />
+			<result column="f_password" property="password" />
+			<result column="f_ini_password" property="initPassword" />
+			<result column="f_card_l_time" property="cardLTime" />
+			<result column="f_card_l_count" property="cardLCount" />
+			<result column="f_card_f_count" property="cardFCount" />
+			<result column="f_income" property="income" />
+			<result column="f_address" property="address" />
+			<result column="f_contact_name" property="contactName" />
+			<result column="f_contact_phone" property="contactPhone" />
+			<result column="f_recomend_person" property="recommendPerson" />
+			<result column="f_create_time" property="createTime" />
+		</resultMap>
+</mapper>

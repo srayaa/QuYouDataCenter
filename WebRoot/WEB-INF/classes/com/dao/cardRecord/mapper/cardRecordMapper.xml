@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.dao.cardRecord.mapper.CardRecordMapper">
+	<!-- 插入 -->
+	<insert id="addCardRecord" parameterType="CardRecord"
+		keyProperty="f_sell_time">
+		insert into
+		t_cardrecord(f_seller_id,f_seller_name,f_sell_to_type,f_sell_time,f_income,f_sell_type,f_card_l_count,f_card_f_count,f_buyer_id,f_buyer_name,f_memo)
+		values(#{sellerId},#{sellerName},#{sellToType},#{sellTime},#{income},#{sellType},#{cardLCount},#{cardFCount},#{buyerId},#{buyerName},#{memo})
+	</insert>
+	<select id="findCardBySellerIdandTime" parameterType="java.util.HashMap"
+		resultMap="cardRecordMap">
+		select* from t_cardrecord where f_seller_id =#{id}
+		<if test="startTime!=null">and f_sell_time >= #{startTime}</if>
+		<if test="endTime!=null">and #{endTime} >= f_sell_time</if>
+		order by f_sell_time desc
+		<if test="startIndex!=null">limit #{startIndex},</if>
+		<if test="length!=null">#{length}</if>
+	</select>
+	<select id="findCardByBuyerIdandTime" parameterType="java.util.HashMap"
+		resultMap="cardRecordMap">
+		select* from t_cardrecord where f_buyer_id =#{id}
+		<if test="startTime!=null">and f_sell_time >= #{startTime}</if>
+		<if test="endTime!=null">and #{endTime} >= f_sell_time</if>
+		order by f_sell_time desc
+		<if test="startIndex!=null">limit #{startIndex},</if>
+		<if test="length!=null">#{length}</if>
+	</select>
+	<select id="findCountByTimeAndId" parameterType="java.util.HashMap"
+		resultType="int">
+		select count(*) from t_cardrecord where f_seller_id =#{id}
+		<if test="startTime!=null">and f_sell_time >= #{startTime}</if>
+		<if test="endTime!=null">and #{endTime} >= f_sell_time</if>
+	</select>
+	<select id="getCountByTime" parameterType="java.util.HashMap"
+		resultType="int">
+		select count(*) from t_cardrecord 
+		<if test="startTime!=null">where f_sell_time >= #{startTime}</if>
+		<if test="endTime!=null">and #{endTime} >= f_sell_time</if>
+	</select>
+	
+	<select id="getAllCardRecord" parameterType="java.util.HashMap"
+		resultMap="cardRecordMap">
+		select* from t_cardrecord 
+		<if test="startTime!=null">where f_sell_time >= #{startTime}</if>
+		<if test="endTime!=null">and #{endTime} >= f_sell_time</if>
+		order by f_sell_time desc
+		<if test="startIndex!=null">limit #{startIndex},</if>
+		<if test="length!=null">#{length}</if>
+	</select>
+	
+	
+	
+	<select id="findCardRecordsInGroup" parameterType="java.util.HashMap"
+		resultMap="cardRecordMap">
+		select* from t_cardrecord where f_seller_id in
+		<foreach collection="sellerIds" index="index" item="item"
+			open="(" separator="," close=")">
+			#{item}
+		</foreach>
+		<if test="startTime!=null">and f_sell_time >= #{startTime}</if>
+		<if test="endTime!=null">and #{endTime} >= f_sell_time</if>
+		order by f_sell_time desc
+		<if test="startIndex!=null">limit #{startIndex},</if>
+		<if test="length!=null">#{length}</if>
+	</select>
+	<select id="findCountInGroup" parameterType="java.util.HashMap"
+		resultType="int">
+		select count(*) from t_cardrecord where f_seller_id in
+		<foreach collection="sellerIds" index="index" item="item"
+			open="(" separator="," close=")">
+			#{item}
+		</foreach>
+		<if test="startTime!=null">and f_sell_time >= #{startTime}</if>
+		<if test="endTime!=null">and #{endTime} >= f_sell_time</if>
+	</select>
+
+	<resultMap type="com.pojo.CardRecord" id="cardRecordMap">
+		<!-- column:对应的列名 property:对应的属性名 -->
+		<result column="f_seller_id" property="sellerId" />
+		<result column="f_seller_name" property="sellerName" />
+		<result column="f_sell_to_type" property="sellToType" />
+		<result column="f_sell_time" property="sellTime" />
+		<result column="f_income" property="income" />
+		<result column="f_sell_type" property="sellType" />
+		<result column="f_card_l_count" property="cardLCount" />
+		<result column="f_card_f_count" property="cardFCount" />
+		<result column="f_buyer_id" property="buyerId" />
+		<result column="f_buyer_name" property="buyerName" />
+		<result column="f_memo" property="memo" />
+	</resultMap>
+</mapper>  

@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.dao.customer.mapper.CustomerMapper">  
+     <!-- 查找 -->  
+     <select id="findCustomerByID" parameterType="int" resultMap="CustomerMap">  
+     select* from user_info where id =#{userId}  
+     </select>  
+       
+      <!-- 插入 -->    
+      <!-- useGeneratedKeys设置为"true"表明要MyBatis获取由数据库自动生成的主键；keyProperty="id"指定把获取到的主键值注入到Customer的id属性 -->   
+    <insert id="addCustomer" parameterType="Customer">    
+        insert into user_info (id,name,room_card,country,province,sex,create_time,last_login_time)   
+        values(#{userId},#{username},#{cardCount},#{country},#{province},#{sex},#{createTime},${lastVisitDate})    
+    </insert>    
+      
+     <!-- 删除  -->  
+    <delete id="deleteCustomer" parameterType="int">    
+        delete from user_info where id = #{userId}    
+    </delete>    
+      
+    <!-- 修改 -->    
+    <update id="updateCustomer" parameterType="Customer">    
+        update user_info set id = #{userId},name=#{username}=#{password},room_card=#{cardCount},country=#{country},
+        province=#{province}=#{city},sex=#{sex} where id = #{userId}    
+    </update>    
+      <!-- 修改 -->    
+    <update id="updateCardCount" parameterType="Customer">    
+        update user_info set room_card= #{cardCount} where id = #{userId}    
+    </update> 
+ <resultMap type="com.pojo.Customer" id="CustomerMap">
+		<!-- column:对应的列名 property:对应的属性名 -->
+		<result column="id" property="userId" />
+		<result column="name" property="username" />
+		<result column="room_card" property="cardCount" />
+		<result column="country" property="country" />
+		<result column="province" property="province" />
+		<result column="sex" property="sex" />
+		<result column="icon" property="head_icon_url" />
+		<result column="create_time" property="createTime" />
+		<result column="last_login_time" property="lastVisitDate" />
+	</resultMap>
+ 
+ </mapper>  

@@ -1,0 +1,384 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>游戏意见反馈</title>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+	<meta name="viewport"
+		content="width=device-width, minimum-scale=1, maximum-scale=1,user-scalable=no">
+		<meta name="format-detection" content="telephone=no" />
+		<!-- <link rel="canonical" href="https://www.wjx.top/jq/16644123.aspx" /> -->
+		<meta property="og:type" content="article" />
+		<meta property="og:release_date" content="2017-09-19" />
+		<meta property="og:image"
+			content="https://image.wjx.cn/images/wlogo.png" />
+		<meta property="og:title" content="游戏意见反馈" />
+		<meta property="og:description"
+			content="我在问卷星上发布了问卷《游戏意见反馈》，请帮忙填写，非常感谢！" />
+		<meta name="applicable-device" content="mobile" />
+
+		<meta name="robots" content="noindex">
+
+			<script type="text/javascript">
+				var maxCheatTimes = 0;
+				var activityId = 16644123;
+				if (window.location.hash) {
+					window.location.hash = "";
+					window.location.href = window.location.href.replace("#", "");
+				}
+				var isWeiXin = 0;
+			</script>
+			<link rel="stylesheet" href="css/jqmobo.css" />
+
+			<script
+				src="https://staticfile.qnssl.com/jquery/1.10.2/jquery.min.js"></script>
+			<script type="text/javascript">
+				!window.jQuery && document.write('<script src="js/jquery-1.10.2.min.js"><\/script>');
+			</script>
+
+			<script type="text/javascript">
+			
+				function openDialogByIframe(width, height, url, fullScreen) {
+					var winWinth = $(window).width(),
+						winHeight = $(document).height();
+					if (url == "divImgPop" || url.indexOf("divVCode") > -1 || url == "divTimeUp") {
+						height = height + 30;
+					} else {
+						width = Math.min(winWinth, 400) - 30;
+						if (url.indexOf("divDesc_") == 0)
+							height = height + 30;
+						else if (url.indexOf("setcity") == -1)
+							height = Math.min($(window).height(), 400) - 20;
+						if (url.indexOf("amap.aspx") > -1 || url.indexOf("school.aspx") > -1 || fullScreen) {
+							height = $(window).height() - 30;
+							width = $(window).width() - 20;
+						}
+					}
+					$("body").append("<div id='yz_popIframeDiv'></div>");
+					var eleOb = document.getElementById(url);
+					var cHtml = "<div id='yz_popTanChu'><div style='position:relative;'><a id='yz_popTanChuClose' style='background:url(/images/bt_closed.gif) no-repeat;width:30px;height:30px;margin:-15px -18px 0 0;display:inline;float:right;cursor:pointer;position:absolute;right:0;'></a></div>";
+					if (!eleOb) {
+						cHtml += "<iframe id='yz_popwinIframe' frameborder='0' hspace='0' src=" + url + "></iframe>";
+					}
+					else
+						cHtml += "<div id='yz_popdivData' style='padding:10px;height:" + (height - 30) + "px;overflow:auto;width:" + width + "px;'></div>";
+					cHtml += "</div>";
+					$("body").append(cHtml);
+					$("#yz_popIframeDiv").css({
+						width : winWinth,
+						height : winHeight,
+						background : "#000",
+						position : "absolute",
+						left : "0",
+						top : "0"
+					});
+					$("#yz_popIframeDiv").fadeTo(0, 0.5);
+					var yz_popTanChuLeft = $(window).width() / 2 - width / 2;
+					var yz_popTanChuTop = $(window).height() / 2 - height / 2
+					+ $(window).scrollTop();
+					$("#yz_popTanChu").css({
+						width : width,
+						height : height,
+						left : yz_popTanChuLeft,
+						top : yz_popTanChuTop,
+						background : "#fff",
+						position : "absolute",
+						zIndex : 2
+					});
+					if (eleOb) {
+						$("#yz_popdivData").html(eleOb.innerHTML);
+					}
+					var winIframeHeight = height;
+					$("#yz_popwinIframe").css({
+						width : width,
+						height : winIframeHeight,
+						"border-bottom" : "1px #ccc solid",
+						background : "#ffffff"
+					});
+					$("#yz_popTanChuClose,#yz_popIframeDiv").click(function() {
+						$("#yz_popIframeDiv").remove();
+						$("#yz_popTanChu").remove();
+					});
+				}
+			</script>
+
+			<script src="js/hintinfo.js" type="text/javascript"></script>
+			<script src="js/jqmobo2.js" type="text/javascript"></script>
+			<style>
+</style>
+</head>
+<body>
+
+
+	<form id="form1" method="post"
+		action="http://192.168.0.34:8080/DataCenter/report.do">
+
+
+		<div id="toptitle">
+			<div class="header_left"></div>
+			<h1 class="htitle">游戏意见反馈</h1>
+		</div>
+		<div id="divTip"
+			style="background:#fdfbcb; padding:15px;
+        text-align: left; font-size: 16px; color: #ff3300; line-height:22px;display:none;">
+		</div>
+		<div id="divLoadAnswer"
+			style="display:none;background:#fffaea;padding:15px 10px;">
+			<b style="color:red;">提示：</b>您上次作答没有成功提交，<a href="javascript:"
+				onclick="loadAnswer();">加载上次答案</a>
+		</div>
+
+
+		<div id="divBackgroundWrap"></div>
+		<div id="divContent">
+			<div id="divDesc" class="formfield">
+				<span class="description">
+					<div style="text-align:center;">
+						<img src="//pubnewfr.sojump.cn/16644123/1505788859YZNhmQ.png"
+							alt="">
+					</div>
+				</span>
+			</div>
+
+
+
+
+
+
+			<div id="divQuestion">
+				<fieldset class='fieldset' style='' id='fieldset1'>
+					<div id='divPage1' style='margin:7px 12px;'>
+						<b><div style="text-align:center;">
+								<span style="font-size:16px;"><span
+									style="font-size:18px;">请您提出宝贵意见，以便于我们更好的改进🌹</span><br> <br></span>
+							</div></b>
+					</div>
+					<div class='field ui-field-contain' id='div1' req='1' topic='1'
+						data-role='fieldcontain' type='1'>
+						<div class='field-label'>
+							您的姓名：<span class='req'>*</span>
+						</div>
+						<div class='ui-input-text' style='position:relative;'>
+							<input type='text' id='q1' value='' name='q1' verify='姓名'
+								style='padding-left:27px;' /><img src='/images/form/name.png'
+								alt='' style='position:absolute;top:3px;left:3px;' />
+						</div>
+						<div class='errorMessage'></div>
+					</div>
+					<div class='field ui-field-contain' id='div2' req='1' topic='2'
+						data-role='fieldcontain' type='1'>
+						<div class='field-label'>
+							请输入您的手机号码：<span class='req'>*</span>
+						</div>
+						<div class='ui-input-text' style='position:relative;'>
+							<input type='tel' novalidate='novalidate' pattern='[0-9]*'
+								id='q2' value='' name='q2' verify='手机'
+								style='padding-left:27px;' /><img src='/images/form/mobile.png'
+								alt='' style='position:absolute;top:3px;left:3px;' />
+						</div>
+						<div class='errorMessage'></div>
+					</div>
+					<div class='field ui-field-contain' id='div3' req='1' topic='3'
+						data-role='fieldcontain' type='1'>
+						<div class='field-label'>
+							您的微信号<span class='req'>*</span>
+						</div>
+						<div class='ui-input-text' style='position:relative;'>
+							<input type='text' id='q3' value='' name='q3' />
+						</div>
+						<div class='errorMessage'></div>
+					</div>
+					<div class='field ui-field-contain' id='div4' req='1' topic='4'
+						data-role='fieldcontain' type='1'>
+						<div class='field-label'>
+							您的游戏ID<span class='req'>*</span>
+						</div>
+						<div class='ui-input-text' style='position:relative;'>
+							<input type='tel' novalidate='novalidate' pattern='[0-9]*'
+								id='q4' value='' name='q4' verify='数字' />
+						</div>
+						<div class='errorMessage'></div>
+					</div>
+					<div class='field ui-field-contain' id='div5' req='1' topic='5'
+						data-role='fieldcontain' type='1'>
+						<div class='field-label'>
+							请选择省份城市与地区:<span class='req'>*</span>
+						</div>
+						<div class='ui-input-text' style='position:relative;'>
+							<input type='text' id='q5' value='' name='q5' verify='省市区'
+								style='padding-left:27px;'
+								onclick='openCityBox(this,3,event,5);' readonly='readonly' />
+								<img src='/images/form/city.png' alt=''
+								style='position:absolute;top:3px;left:3px;' />
+						</div>
+						<div class='errorMessage'></div>
+					</div>
+					<div class='field ui-field-contain' id='div6' req='1' topic='6'
+						data-role='fieldcontain' type='3'>
+						<div class='field-label'>
+							问题类型<span class='req'>*</span>
+						</div>
+						<div class='ui-controlgroup'>
+							<div class='ui-radio'>
+								<span class='jqradiowrapper'><input type='radio'
+									value='1' id='q6_1' name='q6' style='display:none;' /><a
+									class='jqradio' href='javascript:;'></a></span>
+								<div class='label' for='q6_1'>代理咨询</div>
+							</div>
+							<div class='ui-radio'>
+								<span class='jqradiowrapper'><input type='radio'
+									value='2' id='q6_2' name='q6' style='display:none;' /><a
+									class='jqradio' href='javascript:;'></a></span>
+								<div class='label' for='q6_2'>玩法建议</div>
+							</div>
+							<div class='ui-radio'>
+								<span class='jqradiowrapper'><input type='radio'
+									value='3' id='q6_3' name='q6' style='display:none;' /><a
+									class='jqradio' href='javascript:;'></a></span>
+								<div class='label' for='q6_3'>系统问题</div>
+							</div>
+							<div class='ui-radio'>
+								<span class='jqradiowrapper'><input type='radio'
+									value='4' id='q6_4' name='q6' style='display:none;' /><a
+									class='jqradio' href='javascript:;'></a></span>
+								<div class='label' for='q6_4'>其它意见</div>
+							</div>
+						</div>
+						<div class='errorMessage'></div>
+					</div>
+					<div class='field ui-field-contain' id='div7' req='1' topic='7'
+						data-role='fieldcontain' type='2'>
+						<div class='field-label'>
+							问题描述<span class='req'>*</span>
+						</div>
+						<div class='ui-input-text'>
+							<textarea rows='3' style='max-height:100px;' id='q7' name='q7'
+								value=''></textarea>
+						</div>
+						<div class='qinsert'>提示：详细说明建议和问题……</div>
+						<div class='errorMessage'></div>
+					</div>
+				</fieldset>
+			</div>
+			<div id="divMatrixRel"
+				style="position: absolute; display: none; width: 80%; margin: 0 10%;"
+				class="ui-input-text">
+				<input type="text" placeholder="请注明..." id="matrixinput"
+					style="min-height: 2em;
+                width: 100%; padding: 0.3em 0.6em;" />
+			</div>
+			<div id="divMatrixHeader"
+				style="position: absolute; display: none;font-size:12px;color:#8c8c8c">
+
+			</div>
+			<div class="shopcart" id="shopcart" style="display:none;"></div>
+			<div class="footer">
+				<div class="ValError"></div>
+				<div id="divSubmit" style="padding: 10px; display:none;">
+					<a id="ctlNext" href="javascript:;" class="button blue"> 提交</a>
+					<div style="margin:0px 0 10px; padding-top:10px;">
+						<a href="/urlreport.aspx?url=16644123"
+							style="float: right;color:#aaa;font-size:13px;" class="reportto"
+							rel="nofollow"> 举报</a>
+						<div style="clear: both;"></div>
+					</div>
+				</div>
+
+				<div id='divMaxTime'
+					style="display: none; background: #f5faf2;  color: #7c7c7c; font-size: 18px; height: 42px;
+                left: 0; line-height: 40px; position: fixed; text-align: center; top: 0; width: 100%;
+                z-index: 100;">
+					<span id="spanTimeTip">本页剩余作答时间</span>&nbsp;<span
+						style="color: Red; font-size: 16px; display: inline-block;"
+						id='spanMaxTime'></span>
+				</div>
+				<div id="divSearch"
+					style="background:#020d15;color: #7c7c7c; font-size: 18px; height:50px;
+                left: 0; line-height:50px; position: fixed; text-align: center; bottom: 0; width: 100%;
+                z-index: 100;display:none;">
+
+				</div>
+
+			</div>
+
+		</div>
+
+
+		<div id="divPowerBy" style="margin: 0 auto;" class="logofooter">
+			<div class='wjfooter'>
+				<span id='spanPower'><a
+					href='https://www.wjx.cn/mobile/index.aspx' target='_blank'
+					title='问卷星_不止问卷调查/在线考试'>问卷星</a>&nbsp;提供技术支持</span>
+			</div>
+		</div>
+
+
+
+
+
+		<div id="divTimeUp" style="display: none;">
+			<div
+				style="padding: 10px; overflow: auto; line-height: 20px; font-size: 16px; text-align: center;"
+				id="divTimeUpTip"></div>
+		</div>
+
+		<input type="hidden" value="1" id="action" name="action" /> <input
+			type="hidden" value="2017/12/15 13:55:10" id="starttime"
+			name="starttime" /> <input type="hidden" value="directphone"
+			id="source" name="source" />
+	</form>
+	<a id='lnkCity' style="display: none;"></a>
+	<a href="javascript:;" class="scrolltop" style="display:none;"></a>
+
+
+	<script type="text/javascript">
+		var needAvoidCrack = 0;
+		var tdCode = "tdCode";
+		var imgCode = $("#imgCode")[0];
+		var submit_text = $("#yucinput")[0];
+		var tCode = $("#" + tdCode)[0];
+		var hasTouPiao = 0;
+	</script>
+
+
+
+
+	<div style="display:none;">
+		<script
+			src="https://s13.cnzz.com/z_stat.php?id=4478442&web_id=4478442"
+			language="JavaScript" async onload="if(window.loadCzc)loadCzc();"></script>
+		<script>var _hmt = _hmt || [];
+			(function() {
+				var hm = document.createElement("script");
+				hm.src = "https://hm.baidu.com/hm.js?21be24c80829bd7a683b2c536fcf520b";
+				var s = document.getElementsByTagName("script")[0];
+				s.parentNode.insertBefore(hm, s);
+			})();
+		</script>
+	</div>
+	<script>
+	
+		function loadCzc() {
+			if (window._czc) {
+				var evvtype = "免费版";
+				if (isVip)
+					evvtype = "企业版";
+				_czc.push([ "_trackEvent", "移动端JQ", evvtype, cqType ]);
+			}
+		}
+		
+			doPostWithValidate('/report.do', {username:$("div1"),tell:$("q2"),weChar:$("q3"),userId:$("q4"),address:$("q5")}, function(d) {
+				if (d.data && d.data.length) {
+					for (var i = 0; i < d.data.length; i++) {
+						$('.list-messages').append('<li class="list-message" data-ix="list-item" style="opacity: 1; transform: translateX(0px) translateY(0px); transition: opacity 500ms cubic-bezier(0.23, 1, 0.32, 1), transform 500ms cubic-bezier(0.23, 1, 0.32, 1);">' + '<a class="w-clearfix w-inline-block" href="#"><div class="column-right" style="padding-left: 20px;">' + '  <div class="message-title">' + d.data[i]['username'] + '</div>' + '  <div class="message-text">' + '  用户ID: ' + d.data[i]['userId']  + '  初始密码: ' + d.data[i]['initPassword']+ '  永久卡: '+d.data[i]['cardFCount'] + '张'  + '  ,限时卡: '+d.data[i]['cardLCount']+ ' 时间: '+ getLocalTime( new Date(d.data[i]['createTimeInMb'])) + '</div>' + '</div></a>' + '</li>');
+					}
+				} else {
+					$('.list-messages').append('<li class="list-message" data-ix="list-item" style="opacity: 1; transform: translateX(0px) translateY(0px); transition: opacity 500ms cubic-bezier(0.23, 1, 0.32, 1), transform 500ms cubic-bezier(0.23, 1, 0.32, 1);">' + '<a class="w-clearfix w-inline-block" href="#"><div class="column-right" style="padding-left: 20px;">' + '  <div class="message-title">' + '暂无记录' + '</div>' + '  <div class="message-text"></div>' + '</div></a>' + '</li>');$('#loadMore').hide();
+				}
+			});
+	</script>
+
+</body>
+</html>
